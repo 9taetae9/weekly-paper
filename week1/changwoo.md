@@ -14,6 +14,11 @@
 
   ---
 - 🇶 git fetch와 git pull의 차이점을 설명하고, 각각을 사용하는 것이 적절한 상황을 설명해주세요.
+  - gir fetch : 원격 repositroy에 변경사항이 있는지 확인만 하고, 변경된 데이터를 local repositroy에 가져오지 않음
+  - git pull : 원격 repository에 있는 code를 local repository로 받아오는 업데이트
+
+  -  git fetch를 사용하면 마지막 pull 이후 원격 repository 또는 branch에 적용된 변경 사항을 확인  
+    만일 원격 repository에 변경 사항이 존재하는 상황에서 pull을 바로 실행하면 현재 branch와 작업 복사본의 파일이 변경되는 동시에 새로 작업한 내용이 손실 → fetch로 변경 사항을 확인 후 pull을 실행면 마지막 pull 이후 원격 repository 또는 branch에 적용된 변경 사항을 확인
 
 </div>
 </details>
