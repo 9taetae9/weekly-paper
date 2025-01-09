@@ -17,6 +17,7 @@ Rebase(리베이스 , 재적용) : 브랜치의 베이스를 재설정하여 다
 ##### git merge
 Merge(머지, 병합) : 두 개 이상의 개발 히스토리를 하나로 합치는 작업
 * merge 하면 각각의 개발자가 작업한 히스토리가 모두 보존된다.
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ddeda2ac-51b7-4eb1-a2c6-fa369c257b5c/cea7d22f-f702-4c36-b098-23995a561633/image.png)
 ```
 즉, 쉽게 말해 merge vs rebase
 -> 머지는 히스토리를 보존하고, 리베이스는 히스토리를 재작성한다.
