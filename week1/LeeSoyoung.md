@@ -1,6 +1,6 @@
 # 목차
 
-[1. git merge / git rebase](#git-rebase와-git-merge의-차이점을-설명하고,-각각-어떤-상황에서-사용하는-것이-적절한지-설명해주세요.)
+[1. git merge / git rebase](#git-rebase와-git-merge의-차이점을-설명하고-각각-어떤-상황에서-사용하는-것이-적절한지-설명해주세요)
 
 [1-1. git merge](#git-merge)
 
@@ -10,7 +10,7 @@
 
 [1-4. 요약](#요약)
   
-[2. git pull / git fetch](#git-fetch와-git-pull의-차이점을-설명하고,-각각을-사용하는-것이-적절한-상황을-설명해주세요.)
+[2. git pull / git fetch](#git-fetch와-git-pull의-차이점을-설명하고-각각을-사용하는-것이-적절한-상황을-설명해주세요)
 
 [2-1. git pull](#git-pull)
 
