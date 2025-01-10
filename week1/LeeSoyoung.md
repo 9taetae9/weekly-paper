@@ -1,14 +1,22 @@
 # 목차
 
-[1. git rebase와 git merge](#git-rebase와-git-merge의-차이점을-설명하고,-각각-어떤-상황에서-사용하는-것이-적절한지-설명해주세요.)
+[1. git merge / git rebase](#git-rebase와-git-merge의-차이점을-설명하고,-각각-어떤-상황에서-사용하는-것이-적절한지-설명해주세요.)
 
-  [1-1. git merge](#git-merge)
+[1-1. git merge](#git-merge)
 
-  [1-2. git rebase](#git-rebase)
+[1-2. git rebase](#git-rebase)
 
-  [1-3. 차이점](#차이점)
+[1-3. 차이점](#차이점)
 
-  [1-4. 요약](#요약)
+[1-4. 요약](#요약)
+  
+[2. git pull / git fetch](#git-fetch와-git-pull의-차이점을-설명하고,-각각을-사용하는-것이-적절한-상황을-설명해주세요.)
+
+[2-1. git pull](#git-pull)
+
+[2-2. git fetch](#git-fetch)
+
+[2-3. 요약](#차이점-요약)
 
 # git rebase와 git merge의 차이점을 설명하고, 각각 어떤 상황에서 사용하는 것이 적절한지 설명해주세요.
 
@@ -109,8 +117,7 @@ $ git merge feature1
 
 
 feature2에서 작업하던 개발자가 새롭게 업데이트된 develop의 내용을 반영하고 싶다면, 즉 feature2가 develop의 커밋을 기반으로 다시 작성되길 원한다면
-feature2의 베이스를 develop의 최신 커밋으로 옮기면 된다.
-> = feature2를 develop 위로 올린다.
+feature2의 베이스를 develop의 최신 커밋으로 옮기면 된다. "feature2를 develop 위로 올린다."고 생각할 수 있다.
 
  - feature2의 새로운 베이스: C3
  
@@ -170,8 +177,82 @@ merge는 두 브랜치가 합쳐졌다는 게 명확히 드러나고, rebase는 
 ---
 
 
-
-
 # git fetch와 git pull의 차이점을 설명하고, 각각을 사용하는 것이 적절한 상황을 설명해주세요.
+
+## git pull
+```git pull```은 로컬 레포지토리보다 원격 레포지토리가 더 최신 커밋을 가지고 있을 때, 원격 레포지토리 내용을 로컬 레포지토리에 반영하는 명령어이다.
+
+pull='잡아당기다'로 원격의 내용을 로컬로 잡아당긴다고 볼 수 있다.
+동료 개발자와 협업을 하며 코드를 주고 받는 일 중 **받는**일에 해당한다.
+
+원격 레포지토리의 수정 사항을 로컬 레포지토리에 반영하는 것은
+**원격 레포지토리의 현재 브랜**치를 **로컬 레포지토리의 현재 브랜치**로 **병합(merge)**하는 것이다. 
+
+### push 전에 pull을 해야하는 경우
+내가 로컬 레포지토리에서 내 코드를 수정하는 동안
+동료가 원격 레포지토리에 새로운 코드를 올렸다면, ```git push```를 할 수 없다.
+
+이미 동료가 추가한 내용이 있는데 내 코드를 push하면
+동료의 내용은 덮어씌워져 사라질 것이다.
+그래서 이 경우에는 ```git push```를 시도해도 실패한다.
+이때는 push 전에 ```git pull```을 하여 동료의 수정 내용을 내 로컬에 반영하자.
+pull은 merge와 같으므로, Merge Conflict가 발생할 수 있다. 해결하여 pull을 마무리한다.
+
+그 이후 push하면 정상적으로 동작한다.
+
+## git fetch
+pull은 원격 레포지토리의 수정사항을 가져와서 로컬 레포지토리의 브랜치에 merge를 한다면,
+```git fetch```는 가져오기만 하고, merge하지 않는다.
+
+> 왜 알아서 merge까지 해주는 ```git pull```을 쓰지 않고 ```git fetch```를 써야할까?
+
+```git fetch```는 일단 원격 레포지토리에 있는 브랜치에 내용을 가져와서 살펴본 후에 merge하고 싶을 때 사용한다.
+
+만약 원격에 있는 내용이 이상한, 필요 없는 내용일 수도 있다. 협업할 때 있을 수 있는 일이다. _~~(신입 개발자라면 할 수 있는 실수다..)~~_ 
+그럴 때는 ```git pull```이 병합을 하기 전에 확인이 필요하다.
+
+```
+$ git fetch
+PS C:\Users\soo71\github\mergePractice> git fetch
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 934 bytes | 103.00 KiB/s, done.
+From github.com:gitSoyoungLee/mergePractice
+   09196a7..55531e0  main       -> origin/main
+```
+fetch로 가져온 후 ```git diff``` 명령어를 통해 원격 레포지토리의 브랜치와 로컬 레포지토리의 브랜치의 차이를 확인할 수 있다.
+현재 로컬에는 local.md 파일을 생성하고 커밋한 상태고, 원격에서는 remote.md 파일이 있다.
+```
+$ git diff main origin/main
+diff --git a/local.md b/local.md
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/remote.md b/remote.md
+new file mode 100644
+index 0000000..9c998f7
+--- /dev/null
++++ b/remote.md
+@@ -0,0 +1 @@
++remote
+```
+
+이때 해결방법은
+1. 동료에게 찾아가 수정 후 다시 원격에 push하라고 하기
+2. 내가 알아서 해결하고 원격에 push하기
+
+## 차이점 요약
+
+```git pull```
+1. 원격 레포지토리의 수정 사항 정보를 로컬 레포지토리로 **가져오고 병합**한다.
+2. 원격 레포지토리의 최신 커밋을 **검토하지 않고** 로컬에 반영해야 할 때 사용한다.
+
+```git fetch```
+1. 원격 레포지토리의 수정 사항 정보를 **가져오기만** 한다.
+2. 원격 레포지토리에서 가져온 브랜치의 내용을 로컬 레포지토리의 브랜치에 병합(merge)하기 전에 **점검**이 필요할 때 사용한다.
+3. 원격 레포지토리에 있는 브랜치의 내용과 내가 작성한 코드를 비교해야 할 때 사용한다.
+
+
 
 
