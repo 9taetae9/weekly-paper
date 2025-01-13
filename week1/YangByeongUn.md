@@ -150,7 +150,6 @@ Feature1 브랜치에서 `git rebase main` 명령어 시 Main 브랜치 위로 F
 ---
 
 ## **주요 차이점**
-## **주요 차이점**
 
 | **구분** | **git pull** | **git fetch** |
 | --- | --- | --- |
