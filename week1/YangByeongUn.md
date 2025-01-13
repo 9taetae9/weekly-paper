@@ -162,7 +162,8 @@ Feature1 브랜치에서 `git rebase main` 명령어 시 Main 브랜치 위로 F
 | **사용 목적** | 변경사항을 즉시 적용 | 변경사항을 확인 후 수동으로 병합하거나 작업 |
 | **명령어 조합** | `fetch` + `merge` | `fetch`만 수행 |
 
-출처
+###출처
+
 https://www.youtube.com/watch?v=0chZFIZLR_0
 
 https://hudi.blog/git-merge-squash-rebase/
