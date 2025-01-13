@@ -33,10 +33,6 @@ git merge feature
 
 ### Squash and Merge : 병합할 브랜치에 있는 모든 커밋들을 하나의 커밋으로 만든 후, 기준이 되는 브랜치에 추가하는 방식으로 병합합니다.
 
-![출처 : https://hudi.blog/git-merge-squash-rebase/](https://prod-files-secure.s3.us-west-2.amazonaws.com/af6d7ff7-4076-4e73-9399-1a77d41baf77/af39ca7b-5a2a-4417-b240-a383463ea8ae/image.png)
-
-출처 : https://hudi.blog/git-merge-squash-rebase/
-
 - **여러 커밋을 하나로 압축**
     1. 병합 대상 브랜치의 모든 커밋을 하나의 커밋으로 "압축(Squash)"하여 병합합니다.
     2. 최종 커밋 메시지는 사용자가 수정하거나 브랜치의 모든 커밋 메시지를 포함할 수 있습니다.
