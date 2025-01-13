@@ -60,13 +60,6 @@ git rebase main
 # git rebase --continue 명령으로 재베이스를 완료해야 합니다.
 ```
 
-
-## ⬇️
-
-![출처 : https://www.youtube.com/watch?v=0chZFIZLR_0](https://prod-files-secure.s3.us-west-2.amazonaws.com/af6d7ff7-4076-4e73-9399-1a77d41baf77/11fe767d-dd2d-4c73-ab8c-46f3d400d3da/image.png)
-
-출처 : https://www.youtube.com/watch?v=0chZFIZLR_0
-
 Feature1 브랜치에서 `git rebase main` 명령어 시 Main 브랜치 위로 Feature1 브랜치가 올라간다.
 
 ### **장점**
