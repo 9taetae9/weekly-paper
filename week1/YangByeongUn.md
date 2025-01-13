@@ -7,6 +7,7 @@
 git checkout main
 git merge feature
 ```
+![image](https://github.com/user-attachments/assets/fd61c569-9a7f-4679-8016-ae3a488c7e62)
 
 - C1의 파생 브랜치인 Feature1 ( A, B, C )
 - Main 브랜치 ( C0, C1, D, E )
@@ -32,6 +33,7 @@ git merge feature
 ---
 
 ### Squash and Merge : 병합할 브랜치에 있는 모든 커밋들을 하나의 커밋으로 만든 후, 기준이 되는 브랜치에 추가하는 방식으로 병합합니다.
+![image](https://github.com/user-attachments/assets/9fec1126-68ba-4271-84ea-6d34f46df239)
 
 - **여러 커밋을 하나로 압축**
     1. 병합 대상 브랜치의 모든 커밋을 하나의 커밋으로 "압축(Squash)"하여 병합합니다.
@@ -59,6 +61,7 @@ git rebase main
 # 충돌(conflict)이 발생하면 사용자가 해결 후
 # git rebase --continue 명령으로 재베이스를 완료해야 합니다.
 ```
+![image](https://github.com/user-attachments/assets/c6a4e37c-7edc-446a-9e7b-8ccea33396ed)
 
 Feature1 브랜치에서 `git rebase main` 명령어 시 Main 브랜치 위로 Feature1 브랜치가 올라간다.
 
@@ -158,3 +161,9 @@ Feature1 브랜치에서 `git rebase main` 명령어 시 Main 브랜치 위로 F
 | **작업 대상** | 현재 체크아웃된 브랜치에만 적용 | 모든 원격 추적 브랜치의 변경사항을 가져옴 |
 | **사용 목적** | 변경사항을 즉시 적용 | 변경사항을 확인 후 수동으로 병합하거나 작업 |
 | **명령어 조합** | `fetch` + `merge` | `fetch`만 수행 |
+
+출처
+https://www.youtube.com/watch?v=0chZFIZLR_0
+https://hudi.blog/git-merge-squash-rebase/
+https://www.youtube.com/watch?v=0chZFIZLR_0
+
