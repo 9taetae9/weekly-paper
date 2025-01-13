@@ -1,4 +1,4 @@
-hello world# Git Merge Vs Git Rebase
+# Git Merge Vs Git Rebase
 
 ## Git Merge : 두 브랜치를 통합하여 하나로 합치는 작업을 수행
 
