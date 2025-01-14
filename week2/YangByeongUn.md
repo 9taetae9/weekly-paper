@@ -166,8 +166,42 @@ CHRISTINE
     mango
     
     ```
-    
-- flatMap() 과 Map() 차이
+
+### 예제: 3중 중첩된 리스트
+
+### 중첩 리스트
+
+```java
+java
+코드 복사
+List<List<List<String>>> nestedList = Arrays.asList(
+    Arrays.asList(Arrays.asList("A", "B"), Arrays.asList("C", "D")),
+    Arrays.asList(Arrays.asList("E", "F"), Arrays.asList("G", "H"))
+);
+
+```
+
+### 1. `flatMap()`으로 1단계만 평탄화
+
+```java
+java
+코드 복사
+List<List<String>> flatList = nestedList.stream()
+                                        .flatMap(List::stream) // 1단계 평탄화
+                                        .collect(Collectors.toList());
+
+System.out.println(flatList);
+// 출력: [[A, B], [C, D], [E, F], [G, H]]
+
+```
+
+**설명**:
+
+- 최상위 리스트의 각 요소가 2중 리스트(`List<List<String>>`)로 변환됩니다.
+- 아직 내부 리스트는 그대로 유지됩니다.
+
+
+### flatMap() 과 Map() 차이
 
 ```java
 List<String> words = Arrays.asList("Hello", "World");
