@@ -120,3 +120,70 @@ public class DiscountCalculator {
 }
 
 ```
+
+
+### `map()`
+
+- **역할**: 데이터를 변환하여 새로운 형태로 변환.
+- **예시**:
+    
+    ```java
+    List<String> names = Arrays.asList("Alice", "Bob", "Christine");
+    names.stream()
+         .map(String::toUpperCase)
+         .forEach(System.out::println);
+    
+    ```
+    
+- **출력**:
+```java
+ALICE
+BOB
+CHRISTINE
+```
+### `flatMap()`
+
+- **역할**: 중첩된 구조를 단일 구조로 펼침.
+- **예시**:
+    
+    ```java
+    List<List<String>> nestedList = Arrays.asList(
+        Arrays.asList("apple", "banana"),
+        Arrays.asList("cherry", "mango")
+    );
+    nestedList.stream()
+              .flatMap(Collection::stream)
+              .forEach(System.out::println);
+    
+    ```
+    
+- **출력**:
+    
+    ```
+    apple
+    banana
+    cherry
+    mango
+    
+    ```
+    
+- flatMap() 과 Map() 차이
+
+```java
+List<String> words = Arrays.asList("Hello", "World");
+List<String[]> result = words.stream()
+                             .map(word -> word.split("")) // 문자열을 문자 배열로 변환
+                             .collect(Collectors.toList());
+System.out.println(result); // 출력: [[H, e, l, l, o], [W, o, r, l, d]]
+
+List<String> result = words.stream()
+                           .flatMap(word -> Arrays.stream(word.split(""))) // 배열을 평탄화
+                           .collect(Collectors.toList());
+System.out.println(result); // 출력: [H, e, l, l, o, W, o, r, l, d]
+
+```
+
+**차이점** :
+
+- `map()`은 변환 결과를 유지 (중첩 구조).
+- `flatMap()`은 변환 결과를 병합 (평탄화된 구조).
