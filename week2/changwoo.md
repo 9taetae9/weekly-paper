@@ -9,8 +9,7 @@
             -   부가 기능을 별개의 클래스로 분리해 책임을 담당
                 -   여러 곳에 흩어진 공통 책임을 한 곳에 모으면서 응집도 높이기
                 -   그러나 이런 독립 클래스를 구현하더라도 구현된 기능들을 호출하고 사용하는 코드는 해당 기능을 사용하는 코드 어딘가에 포함될 수밖에 없다.  
-                    [##_Image|kage@bDaNiW/btsLK8yUeNc/LMj5QrvhUTDigefKSg0p11/img.png|CDM|1.3|{"originWidth":1470,"originHeight":600,"style":"alignCenter","width":null}_##]
-​
+                  
 ---
 ​
 ### 예제 코드
@@ -90,9 +89,6 @@
               }    
       }
     ```
-### References
-
--   [https://gmlwjd9405.github.io/2018/07/05/oop-solid.html](https://gmlwjd9405.github.io/2018/07/05/oop-solid.html)
 ---
 ### OCP
 
@@ -158,3 +154,43 @@ public class DiscountService {
 
 >  새로운 고객 유형이 추가될 때 기존 코드를 수정하지 않고 새로운 DiscountPolicy 클래스를 추가하기만 하면 된다.
 
+---
+### map, flatMap
+- map() : 각 요소를 변환한 스트림 반환
+- flatMap(): 각 요소를 변환한 스트림들을 하나의 스트림으로 평면화하여 반환
+- 코드 예시
+  
+  ```
+    //map()=> 데이터를 변환해서 새로운 형태로 변환
+    List<String> names=Arrays.asList("Alice","Bab","Christine");
+    names.stream()
+          .map(name->name.toUpperCase())
+          .forEach(System.out::println);
+
+  출력
+  ALICE
+  BAB
+  CHRISTINE
+  
+  ```
+  ```
+     //flatMap() => 중첩구조를 단일 구조로 펼쳐
+    List<List<String>> nestedList=Arrays.asList(
+                    Arrays.asList("apple","banana"),
+                    Arrays.asList("cherry","mango")
+            );
+    nestedList.stream().flatMap(Collection::stream).forEach(System.out::print);
+    출력
+    apple
+    banana
+    cherry
+    mango
+    ```
+  - map() 사용이 적절한 경우
+      - 단순 1:1 데이터 변환
+      - 객체의 특정 필드 추출
+      - 값 변환 작업
+  - flaMap() 사용이 적절한 경우
+      - 중첩된 컬렉션 처리
+      - 복잡한 데이터 구조 평면화
+      - 1:N관계의 데이터 처리  
