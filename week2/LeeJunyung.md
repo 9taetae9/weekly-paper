@@ -119,5 +119,6 @@ class Harbin extends Movie {
     }
 }
 ```
+---
+📌 **Stream API의 map과 flatMap의 차이점을 설명하고, 각각의 활용 사례를 예시 코드와 함께 설명해주세요.**
 
-🇶 Stream API의 map과 flatMap의 차이점을 설명하고, 각각의 활용 사례를 예시 코드와 함께 설명해주세요.
