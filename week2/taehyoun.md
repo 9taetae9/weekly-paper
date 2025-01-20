@@ -1,4 +1,4 @@
-# 🌟 객체지향 프로그래밍 원칙 
+# 🌟 SRP & OCP
 
 ## 🧩 단일 책임 원칙 (Single Responsibility Principle, SRP) 
 
