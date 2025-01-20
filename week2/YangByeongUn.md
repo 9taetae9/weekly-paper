@@ -128,7 +128,7 @@ public class DiscountCalculator {
 - **예시**:
     
     ```java
-    List<String> names = Arrays.asList("Alice", "Bob", "Christine");
+    List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
     names.stream()
          .map(String::toUpperCase)
          .forEach(System.out::println);
@@ -139,7 +139,7 @@ public class DiscountCalculator {
 ```java
 ALICE
 BOB
-CHRISTINE
+CHARLIE
 ```
 ### `flatMap()`
 
