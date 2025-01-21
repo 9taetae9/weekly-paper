@@ -10,7 +10,7 @@
   - 필요에 따라 오버라이딩 가능
   - 객체 별로 구분할 수 있는 고유한 값을 만들어 준다.
   #### 버킷 수
-  - defalut 버킷 size=16, hashcode를 버킷 수로 나눈 나머지를 hash 버킷 index로 사요ㅑㅇ
+  - defalut 버킷 size=16, hashcode를 버킷 수로 나눈 나머지를 hash 버킷 index로 사용
   - 로드팩터
     - HashMap을 default 로드팩터는 0.75
     - 0.75이상 -> 버킷 개수의 2배만큼 용량 증가 %16 -> %32
