@@ -216,3 +216,164 @@ HashSet은 내부적으로 HashMap으로 동작하고,
 # 블로그 링크 
 [링크](https://velog.io/@soo7132/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-WP-3-1.-HashSet%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%A0%95%EB%A6%AC#-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%ED%95%B4%EC%8B%9C-%ED%85%8C%EC%9D%B4%EB%B8%94-%EA%B5%AC%EC%A1%B0)
 
+
+# 🔎 주제 2
+> O(n)과 O(log n)의 성능 차이를 실생활 예시를 들어 설명하고, 데이터의 크기가 1백만 개일 때 각각 대략 몇 번의 연산이 필요한지 비교해주세요.
+
+
+# Big O 표기법
+
+알고리즘의 복잡도를 나타낼 때 Big Θ, Big Ω 표기법 등 여러 방법이 있지만
+가장 많이 쓰는 건 Big O 표기법인 듯 하다.
+
+## 정의
+알고리짐의 성능을 나타내는 법으로 **알고리즘이 얼마나 빠르고 효율적인지를 수로 표현**한다.
+알고리즘에서 효율을 계산할 때 중요한 건 '데이터의 수가 많아질 때 연산 횟수는 얼마나 증가하는가?'이고 Big O는 알고리즘이 성능이 최악인 경우를 나타날 때 사용한다.
+
+따라서 해당 알고리즘을 사용하는 어떤 경우에도 보장되는 성능 표기법이다.
+
+### 알고리즘의 성능?
+알고리즘의 성능은 **1. 코드의 실행 속도(시간)**과 **2. 코드 실행 시 필요한 메모리의 양**으로 평가된다.
+
+Big O 표기법으로는 시간 복잡도와 공간 복잡도를 분석할 수 있다.
+- 시간 복잡도: 코드가 실행되는데 걸리는 시간
+  - 입력 데이터 개수(n)가 늘어날수록 컴퓨터가 그 작업을 처리하는데는 얼마나 실행 시간이 늘어날까?
+- 공간 복잡도: 코드가 실행되면서 사용되는 메모리 양
+  - 입력 데이터 개수(n)가 늘어날수록 얼마나 많은 양의 데이터가 메모리에 저장되어야 할까?
+
+### 수학적 정의
+
+수학적으로 나타낸 정의는 다음과 같다. 개인적으로 이 정의가 맘에 든다.
+
+> _f(n) = O(g(n))_ iff there exist positive costants _c_ and _n0_ such that _f(n)≤ c·g(n)_ for all _n_, _n≥n₀_
+> 
+모든 _n_, _n≥n₀_ 에 대하여 _f(n)≤ c·g(n)_ 를 만족하는 양의 상수 _c_ 와 _n0_ 가 존재하면 _f(n) = O(g(n))_ 이다.
+이때 _f(n)_ 은 _g(n)_의 Big O라고 읽는다.
+
+예를 들어 _f(n)_과 _g(n)_이 다음과 같다고 하자. 평가하려는 (시간복잡도 or 공간복잡도) 함수가 _f(n)_이고, _g(n)_은 비교할 함수이다.
+
+_f(n)_ = 3n+2
+_g(n)_ = n
+
+이때 3n₀+2≤ cn₀을 만족하는 c=4, n₀=2이다. 조건을 만족하는 c와 n₀이 있으므로 _f(n)_ = 3n=2 = _O(n)_이다.
+
+여기서 두드러지는 Big O 표기법의 특징은
+1. 상수항을 무시한다.
+  _O(2n)_이든 _O(3n+1)_이든 _O(n)_이다.
+2. 최고차항만 본다.
+  데이터 입력 개수 n의 영향을 받으므로 가장 영향력이 큰 최고차항만 본다.
+_O(3n²+2n+1)_은 _O(3n²)_으로, 여기서 _O(n²)_으로 보면 된다.
+
+# 예시와 실습
+알고리즘 강의에서 주로 정렬과 탐색 알고리즘을 예시로 배워
+그와 관련된 실생활 사례를 가지고 왔다.
+
+## O(n)
+O(n)=f(n)=n으로 O(n)은 하나씩 확인하는 선형 알고리즘에 해당한다.
+최악의 경우 입력 데이터 n개를 모두 확인한다.
+
+**실생활 예시**
+
+![](https://velog.velcdn.com/images/soo7132/post/3d855f0a-fa03-405a-9e21-f062019c9fa3/image.png)
+
+도서관에서 공부에 필요한 책을 빌리려고 하는데, 도서관의 책들이 아직 정리되지 않은 상태이다.
+한 권씩 꺼내 제목을 확인하며 책을 찾는다.
+운이 없다면, 도서관의 모든 책 n개를 확인해야 한다.
+이런 식의 탐색을 **선형 탐색**이라고 한다.
+
+**코드**
+```
+public class LinearSearch {
+    public static int linearSearch(String[] arr, String target) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(target)) return i;  // 찾으면 인덱스 반환
+        }
+        return -1;  // 찾지 못한 경우
+    }
+
+    public static void main(String[] args) {
+        String[] arr = {"코딩의 이해", "개발자가 되고 싶어?", "스프린트",
+        				"알고리즘 파헤치기","자료구조의 정석"};
+        System.out.println(linearSearch(arr, "스프린트"));  // 2
+    }
+}
+
+```
+
+## O(log n)
+
+**실생활 예시**
+
+![](https://velog.velcdn.com/images/soo7132/post/0136b8b0-a214-4d0a-8280-f281fa63eca4/image.png)
+
+
+사전에서 어떤 단어를 찾으려고 한다.
+사전은 당연히 ㄱㄴㄷ, 혹은 ABC 순서로 정렬된 상태라고 가정한다.
+처음부터 찾는 게 아니라 중반부터 찾아가며 확인해야 하는 페이지를 절반씩 줄인다.
+
+얘를 들어 "Notation" 뜻이 궁금하다면,
+일단 사전에서 중간 페이지의 단어와 Notation의 알파벳을 비교한다.
+n이 뒷쪽에 있다면 이제 중간 페이지의 뒷부분들만 확인하면 된다.
+이런 식으로 절반씩 줄여나간다. 이러한 탐색을 **이진 탐색**이라고 한다.
+
+**코드**
+```
+import java.util.Arrays;
+
+public class DictionarySearch {
+    public static int binarySearchDictionary(String[] dictionary, String target) {
+        int left = 0, right = dictionary.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            int comparison = dictionary[mid].compareTo(target);
+
+            if (comparison == 0) return mid;  // 단어를 찾았을 경우 인덱스 반환
+            else if (comparison < 0) left = mid + 1;  // target이 사전 순으로 뒤쪽이면 오른쪽 탐색
+            else right = mid - 1;  // target이 사전 순으로 앞쪽이면 왼쪽 탐색
+        }
+        return -1;  // 단어가 사전에 없는 경우
+    }
+
+    public static void main(String[] args) {
+        String[] dictionary = {"algorithm", "data", "character", "map", "notation", "object", "public", "static"};
+        Arrays.sort(dictionary);  // 사전은 정렬되어 있어야 함
+        String target = "notation";
+
+        int result = binarySearchDictionary(dictionary, target);
+        if (result != -1) {
+            System.out.println("단어 '" + target + "'는 사전의 " + result + "번째 인덱스에 있습니다.");
+        } else {
+            System.out.println("단어 '" + target + "'를 찾을 수 없습니다.");
+        }
+    }
+}
+```
+
+**+**
+왜 절반씩 줄여가는 것이 O(log n)일까?
+
+1️⃣ 한 단계 진행할 때마다 검색할 페이지 수가 절반으로 줄어든다.
+
+사전의 총 페이지 수를 n이라고 하면,
+- 첫 번째 비교 후 n/2 개의 페이지만 확인하면 됨
+- 두 번째 비교 후 n/4 개의 페이지만 확인하면 됨
+- 세 번째 비교 후 n/8 개의 페이지만 확인하면 됨
+- k번째 비교 후 n / 2ᵏ 개의 페이지만 확인하면 됨
+
+2️⃣ 언제 검색이 끝나는지 계산
+
+이진 탐색은 보통 1개의 페이지만 남았을 때 종료한다.
+n / 2ᵏ = 1이 되는 k를 구하기 위해 양변에 log를 적용하면
+log₂n= k
+즉, 이진 탐색의 최대 비교 횟수 k는 log₂(n) 이고
+Big O 표기법에 따라 O(log n)이다.
+
+---
+
+n=1,000,000일 때 O(n)=1,000,000이라고 할 수 있다. 즉 1백만 번의 연산을 할 수도 있다.
+n=1,000,000일 때 O(log n)=log 1,000,000=log₂1,000,000≈19.9로 최악의 경우에도 20번의 연산으로 원하는 값을 찾을 수 있다.
+O(log n)의 성능이 O(n)보다 훨씬 우수하며, 데이터가 많을 수록 그 차이가 더욱 커진다.
+
+# 블로그 링크
+[📑](https://velog.io/@soo7132/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-WP-3-2.-Big-O-%ED%91%9C%EA%B8%B0%EB%B2%95)
