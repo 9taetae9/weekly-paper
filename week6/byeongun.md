@@ -68,7 +68,7 @@ public class ExecutionTimeLoggerAspect {
         return result;
     }
 }
-
+```
 ### ✅ **2) 트랜잭션 관리(Transaction Management)**
 - AOP를 활용하여 모든 서비스 메소드에 트랜잭션을 자동 적용.
 - 데이터 정합성을 유지하고, 트랜잭션 시작, 종료, 롤백 등을 일괄적으로 관리.
@@ -89,7 +89,7 @@ public class TransactionAspect {
     }
 }
 
-
+```
 ### ✅ **3) API 요청 로깅(Request Logging)**
 - 모든 API 요청을 자동으로 로깅하여 요청 정보를 저장.
 - URI, HTTP 메소드, 클라이언트 IP 정보를 중앙에서 기록하여 보안 및 분석 활용.
