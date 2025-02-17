@@ -20,6 +20,9 @@ WAS는 웹 서버 기능과 추가적으로 서버 사이드 로직을 처리한
 ```
 - 대표적인 WAS : Tomcat, Jetty, JBoss 등
 
+![다운로드 (1)](https://github.com/user-attachments/assets/aaa64923-5f9e-43da-b8fc-1de5f0c8558a)
+
+
 #### SpringBoot의 내장 톰캣 
 SpringBoot의 내장 톰캣은 **WAS** 에 해당된다. 
 <br> Servlet 컨테이너로서 Java 웹 애플리케이션을 실행할수 있으며, springBoot 프로젝트 내에서 애플리케이션을 배포할 때, 
