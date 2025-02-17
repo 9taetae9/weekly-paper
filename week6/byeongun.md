@@ -1,7 +1,7 @@
 # 📌 Spring에서 AOP(Aspect Oriented Programming)가 필요한 이유와 이를 활용한 실제 애플리케이션 개발 사례
 
 ## **1. AOP가 필요한 이유**
-Spring에서 **AOP(Aspect Oriented Programming, 관점 지향 프로그래밍)**는 핵심 비즈니스 로직과 **공통 관심 사항(Cross-cutting Concerns)을 분리하여 코드의 유지보수성을 높이고 모듈화를 향상**시키기 위해 필요합니다.
+Spring에서 **AOP(Aspect Oriented Programming, 관점 지향 프로그래밍)** 는 핵심 비즈니스 로직과 **공통 관심 사항(Cross-cutting Concerns)을 분리하여 코드의 유지보수성을 높이고 모듈화를 향상**시키기 위해 필요합니다.
 
 Spring 애플리케이션에서 여러 컴포넌트나 서비스에 걸쳐 반복적으로 사용되는 기능(공통 관심 사항)에는 다음과 같은 것들이 있습니다.
 
@@ -28,7 +28,7 @@ AOP를 활용하면 **각각의 서비스 클래스에서 공통 로직을 중�
 ---
 
 ## **2. Spring AOP가 프록시를 활용하는 방식**
-Spring AOP에서 **애스펙트(Aspect)**는 **프록시 객체를 생성하여 기존 객체를 감싸고, 메소드 호출 시 공통 로직을 실행한 후 원래 메소드를 실행하는 방식**으로 동작합니다.
+Spring AOP에서 **Aspect** 는 **프록시 객체를 생성하여 기존 객체를 감싸고, 메소드 호출 시 공통 로직을 실행한 후 원래 메소드를 실행하는 방식**으로 동작합니다.
 
 ### ✅ **AOP에서 사용되는 프록시 방식**
 #### **1) JDK Dynamic Proxy**
