@@ -1,3 +1,5 @@
+Here is the content from the file `week5/byeongun` in a normal text format:
+
 # 웹 서버(Web Server)와 WAS(Web Application Server)의 차이 및 Spring Boot의 Bean 등록 방법
 
 ## 1. 웹 서버(Web Server)와 WAS(Web Application Server)의 차이
@@ -90,3 +92,4 @@ Spring Boot에서 빈(Bean)을 등록하는 방법은 크게 **세 가지**가 �
 | XML 등록 | `<bean>` 태그 | Java 코드와 분리 가능 | 복잡하고 유지보수 어려움 |
 
 ---
+
