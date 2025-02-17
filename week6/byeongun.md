@@ -1,4 +1,4 @@
-# 📌 Spring에서 AOP(Aspect Oriented Programming)가 필요한 이유와 이를 활용한 실제 애플리케이션 개발 사례
+#  Spring에서 AOP(Aspect Oriented Programming)가 필요한 이유와 이를 활용한 실제 애플리케이션 개발 사례
 
 ## **1. AOP가 필요한 이유**
 Spring에서 **AOP(Aspect Oriented Programming, 관점 지향 프로그래밍)** 는 핵심 비즈니스 로직과 **공통 관심 사항(Cross-cutting Concerns)을 분리하여 코드의 유지보수성을 높이고 모듈화를 향상**시키기 위해 필요합니다.
