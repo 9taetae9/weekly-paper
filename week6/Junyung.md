@@ -66,8 +66,6 @@ AOP는 핵심 비즈니스 로직(Core Concerns)과 공통적인 부가 기능(C
 5. 클라이언트에게 HTML 페이지 반환
 
 ```java
-java
-복사편집
 @Controller
 public class HomeController {
     @GetMapping("/home")
@@ -88,8 +86,6 @@ public class HomeController {
 5. 클라이언트에게 JSON 응답 반환
 
 ```java
-java
-복사편집
 @RestController
 public class ApiController {
     @GetMapping("/api/message")
